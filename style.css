@@ -1,25 +1,19 @@
-/* Reset básico */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
   font-family: 'Segoe UI', sans-serif;
-  background-color: #f9f9f9;
+  margin: 0;
+  background: #f9f9f9;
   color: #333;
+  text-align: center;
 }
 
 /* Barra superior */
 .barra-superior {
-  background-color: #004080;
+  background: #004080;
   color: white;
   padding: 1rem 0;
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
 .contenedor-barra {
@@ -34,7 +28,7 @@ body {
 .logo a {
   color: white;
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: bold;
 }
 
@@ -42,95 +36,72 @@ body {
   list-style: none;
   display: flex;
   gap: 1rem;
+  margin: 0;
+  padding: 0;
 }
 
 .menu-principal a {
   color: white;
   text-decoration: none;
   font-weight: 600;
-  padding: 0.5rem 0.75rem;
-  border-radius: 6px;
-  transition: background 0.2s;
-}
-
-.menu-principal a:hover {
-  background-color: #0066cc;
 }
 
 .icono-carrito {
   font-size: 1.5rem;
-  text-decoration: none;
   color: white;
-  padding: 0.5rem;
-  border-radius: 50%;
-  transition: background 0.2s;
+  text-decoration: none;
 }
 
-.icono-carrito:hover {
-  background-color: #0066cc;
-}
-
-/* Secciones */
-section {
-  padding: 2rem 0;
-}
-
-.contenedor {
-  width: 90%;
-  max-width: 1000px;
-  margin: auto;
-  text-align: center;
-}
-
-/* Imagen del empresario */
+/* Imagen empresario */
 .foto-empresario {
   max-width: 250px;
+  margin: 2rem auto;
+  display: block;
   border-radius: 50%;
-  cursor: pointer;
-  margin-bottom: 1rem;
 }
 
 /* Botón Excel */
 .boton-excel {
   display: inline-block;
-  background-color: #004080;
+  background: #004080;
   color: white;
   padding: 0.75rem 1.25rem;
   border-radius: 8px;
   text-decoration: none;
   font-weight: bold;
-  margin-bottom: 2rem;
+  margin: 2rem auto;
 }
 
 .boton-excel:hover {
-  background-color: #0066cc;
+  background: #0066cc;
 }
 
 /* Packs */
 .packs {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  display: flex;
+  justify-content: center;
   gap: 2rem;
-  margin-top: 2rem;
+  margin: 2rem 0;
+  flex-wrap: wrap;
 }
 
 .pack {
-  background-color: white;
+  background: white;
   padding: 1rem;
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  width: 220px;
 }
 
 .pack img {
   width: 100%;
-  border-radius: 8px;
-  cursor: pointer;
+  max-width: 180px;
+  margin-bottom: 1rem;
 }
 
-.pack a {
+.boton-pack {
   display: inline-block;
-  margin-top: 1rem;
-  background-color: #004080;
+  background: #004080;
   color: white;
   padding: 0.5rem 1rem;
   border-radius: 6px;
@@ -138,23 +109,20 @@ section {
   font-weight: bold;
 }
 
-.pack a:hover {
-  background-color: #0066cc;
+.boton-pack:hover {
+  background: #0066cc;
 }
 
 /* QR */
-.qr {
-  margin-top: 3rem;
-}
-
 .qr img {
-  max-width: 200px;
-  cursor: pointer;
+  max-width: 150px;
+  margin: 2rem auto;
+  display: block;
 }
 
 /* Contacto */
 .contacto {
-  margin-top: 3rem;
+  margin: 2rem 0;
   font-size: 1rem;
   color: #555;
 }
