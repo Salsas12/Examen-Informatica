@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pack 20 horas - Impulso Digital</title>
+  <title>Carrito - Impulso Digital</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -17,38 +17,88 @@
           <li><a href="sobre-mi.html">Sobre mí</a></li>
           <li><a href="excel.html">Excel</a></li>
           <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="carrito.html">Carrito (<span id="cart-count">0</span>)</a></li>
         </ul>
       </nav>
-      <a href="carrito.html" class="icono-carrito">🛒</a>
     </div>
   </header>
 
-  <section class="contenedor">
-    <h2>Pack 20 horas</h2>
-    <p>
-      Este pack está diseñado para emprendedores que están comenzando su camino digital. En estas 20 horas trabajaremos juntos para establecer una base sólida que te permita tener presencia online y empezar a captar clientes.
-    </p>
-    <ul>
-      <li>Diagnóstico digital completo de tu negocio</li>
-      <li>Análisis de tu presencia online actual</li>
-      <li>Creación de una estrategia básica de visibilidad</li>
-      <li>Recomendaciones de herramientas gratuitas</li>
-      <li>Sesión final de revisión y ajustes</li>
-    </ul>
-    <p><strong>Precio: 120 €</strong></p>
+  <main class="contenedor">
+    <h2>Tu carrito</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Pack</th>
+          <th>Cantidad</th>
+          <th>Precio</th>
+          <th>Total</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="cart-items"></tbody>
+    </table>
 
-    <div style="margin-top: 1rem;">
-      <a href="#" class="boton-pack" onclick="agregarAlCarrito('Pack 20 horas', 120)">Añadir al carrito</a>
-      <a href="carrito.html?pack=20" class="boton-pack" style="margin-left: 1rem;">Ir al carrito</a>
+    <div class="cart-total" style="text-align: right; margin-top: 1rem;">
+      <h3>Total: <span id="cart-total">0 €</span></h3>
+      <button id="clear-cart">Vaciar carrito</button>
+      <a id="checkout" class="boton-pack" href="#" target="_blank" style="margin-left: 1rem; background-color: #0070ba;">Pagar con PayPal</a>
     </div>
-  </section>
+  </main>
 
   <script>
-    function agregarAlCarrito(nombre, precio) {
-      const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-      carrito.push({ nombre, precio });
-      localStorage.setItem("carrito", JSON.stringify(carrito));
+    let cart = JSON.parse(localStorage.getItem('carrito')) || [];
+
+    function updateCart() {
+      const cartItems = document.getElementById('cart-items');
+      const cartCount = document.getElementById('cart-count');
+      const cartTotal = document.getElementById('cart-total');
+      const checkoutBtn = document.getElementById('checkout');
+
+      cartItems.innerHTML = '';
+      let total = 0;
+
+      cart.forEach((item, index) => {
+        const itemTotal = item.price * item.quantity;
+        total += itemTotal;
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${item.nombre}</td>
+          <td><input type="number" value="${item.quantity}" min="1" data-index="${index}" class="quantity-input"></td>
+          <td>${item.price} €</td>
+          <td>${itemTotal.toFixed(2)} €</td>
+          <td><button class="remove-item" data-index="${index}">X</button></td>
+        `;
+        cartItems.appendChild(tr);
+      });
+
+      cartCount.textContent = cart.length;
+      cartTotal.textContent = total.toFixed(2) + ' €';
+      checkoutBtn.href = `https://www.paypal.me/mburgadap/${total.toFixed(2)}`;
+      localStorage.setItem('carrito', JSON.stringify(cart));
     }
+
+    document.getElementById('cart-items').addEventListener('input', e => {
+      if (e.target.classList.contains('quantity-input')) {
+        const index = e.target.dataset.index;
+        cart[index].quantity = parseInt(e.target.value);
+        updateCart();
+      }
+    });
+
+    document.getElementById('cart-items').addEventListener('click', e => {
+      if (e.target.classList.contains('remove-item')) {
+        const index = e.target.dataset.index;
+        cart.splice(index, 1);
+        updateCart();
+      }
+    });
+
+    document.getElementById('clear-cart').addEventListener('click', () => {
+      cart = [];
+      updateCart();
+    });
+
+    updateCart();
   </script>
 
 </body>
