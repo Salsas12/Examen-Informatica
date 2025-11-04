@@ -1,0 +1,160 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+/* Barra superior */
+.barra-superior {
+  background-color: #004080;
+  color: white;
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.contenedor-barra {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.menu-principal ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.menu-principal a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.menu-principal a:hover {
+  background-color: #0066cc;
+}
+
+.icono-carrito {
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+
+.icono-carrito:hover {
+  background-color: #0066cc;
+}
+
+/* Secciones */
+section {
+  padding: 2rem 0;
+}
+
+.contenedor {
+  width: 90%;
+  max-width: 1000px;
+  margin: auto;
+  text-align: center;
+}
+
+/* Imagen del empresario */
+.foto-empresario {
+  max-width: 250px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+/* Botón Excel */
+.boton-excel {
+  display: inline-block;
+  background-color: #004080;
+  color: white;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.boton-excel:hover {
+  background-color: #0066cc;
+}
+
+/* Packs */
+.packs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.pack {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.pack img {
+  width: 100%;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.pack a {
+  display: inline-block;
+  margin-top: 1rem;
+  background-color: #004080;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.pack a:hover {
+  background-color: #0066cc;
+}
+
+/* QR */
+.qr {
+  margin-top: 3rem;
+}
+
+.qr img {
+  max-width: 200px;
+  cursor: pointer;
+}
+
+/* Contacto */
+.contacto {
+  margin-top: 3rem;
+  font-size: 1rem;
+  color: #555;
+}
