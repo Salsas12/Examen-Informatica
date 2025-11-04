@@ -8,14 +8,12 @@
 </head>
 <body>
 
-  <!-- Barra superior -->
   <header class="barra-superior">
     <div class="contenedor-barra">
       <h1 class="logo"><a href="index.html">Impulso Digital</a></h1>
       <nav class="menu-principal">
         <ul>
           <li><a href="index.html">Inicio</a></li>
-          <li><a href="packs.html">Packs</a></li>
           <li><a href="sobre-mi.html">Sobre mí</a></li>
           <li><a href="excel.html">Excel</a></li>
           <li><a href="contacto.html">Contacto</a></li>
@@ -25,7 +23,6 @@
     </div>
   </header>
 
-  <!-- Contenido del pack -->
   <section class="contenedor">
     <h2>Pack 100 horas</h2>
     <p>
@@ -38,11 +35,17 @@
       <li>Formación en herramientas digitales para tu equipo</li>
       <li>Soporte continuo y revisión mensual de resultados</li>
     </ul>
-    <p>
-      Ideal para empresas que quieren dar un salto profesional, consolidar su marca y generar impacto real en el entorno digital.
-    </p>
-    <a href="carrito.html" class="boton-pack">Añadir al carrito</a>
+    <p><strong>Precio: 480 €</strong></p>
+    <a href="carrito.html" class="boton-pack" onclick="agregarAlCarrito('Pack 100 horas', 480)">Añadir al carrito</a>
   </section>
+
+  <script>
+    function agregarAlCarrito(nombre, precio) {
+      const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+      carrito.push({ nombre, precio });
+      localStorage.setItem("carrito", JSON.stringify(carrito));
+    }
+  </script>
 
 </body>
 </html>
